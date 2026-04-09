@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+@theme {
+  /* 1. Definisikan Keyframes */
+  @keyframes loop-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes loop-back {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  /* 2. Definisikan Variabel Animasi */
+  --animate-loop-scroll: loop-scroll 50s linear infinite;
+  --animate-loop-back: loop-back 50s linear infinite;
+}
+
+@utility paused {
+  animation-play-state: paused;
+}

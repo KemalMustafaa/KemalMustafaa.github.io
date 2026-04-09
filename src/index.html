@@ -4,16 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./output.css" rel="stylesheet" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1"
-      type="module"
-    ></script>
   </head>
   <body class="bg-black text-white">
+    <!-- header -->
     <header>
       <!-- nav -->
       <nav
-        class="relative bg-black after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10"
+        class="sticky top-0 z-20 bg-black after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10"
       >
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div class="relative flex h-16 items-center justify-between">
@@ -94,7 +91,7 @@
                 </div>
               </div>
               <button
-                class="hidden sm:ml-6 sm:flex items-center justify-center px-2 py-2 text-sm rounded-[3px] bg-gray-700 text-white hover:bg-gray-600 cursor-pointer"
+                class="hidden sm:flex items-center justify-center px-2 py-2 text-sm rounded-[3px] bg-gray-700/70 text-white hover:bg-gray-600 cursor-pointer"
               >
                 Contact Me
               </button>
@@ -142,15 +139,130 @@
 
       <!-- Hero -->
       <section>
-        <div class="location flex items-center justify-center">
-          <img
-            class="h-7 w-7"
-            src="images/icons8-location-100.png"
-            alt="location-icon"
-          />
-          <h5>Jakarta, Indonesia</h5>
+        <div class="bg-intro bg-radial from-white/15 to-black py-20 px-3.5">
+          <div class="location flex items-center justify-center">
+            <img class="h-6 w-6" src="images/loc.png" alt="location-icon" />
+            <h5 class="opacity-40 font-light">Jakarta, Indonesia</h5>
+          </div>
+          <div class="intro flex flex-col justify-center w-full">
+            <h1
+              class="sm:text-7xl text-5xl text-center min-h-[2.5em] flex items-center justify-center"
+              id="title-intro"
+            ></h1>
+            <p class="text-center font-thin sm:w-2xl mx-auto mt-4">
+              I am a Designer and also a Developer. i can help you, if you have
+              asany project or if you want make a software and website for your
+              business, you can contact me.
+            </p>
+          </div>
+          <div class="btn-cta flex justify-center gap-5 py-7">
+            <button
+              class="px-4 py-2 text-sm bg-white text-black rounded-[3px] hover:bg-white/70 cursor-pointer"
+            >
+              Get Yours Now
+            </button>
+            <button
+              class="px-4 py-2 text-sm rounded-[3px] bg-gray-700/70 text-white hover:bg-gray-600 cursor-pointer"
+            >
+              See My Works
+            </button>
+          </div>
         </div>
       </section>
+
+      <!-- Infinite Auto Scroll -->
+      <h1 class="items-center flex justify-center opacity-30 font-light mb-8">
+        The Tech Stack I Use
+      </h1>
+      <div
+        class="relative flex space-x-16 overflow-hidden group mb-8 mx-10 sm:mx-15"
+      >
+        <!-- EFEK KABUR KIRI -->
+        <div
+          class="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-black to-transparent z-10"
+        ></div>
+        <div
+          class="carousel flex space-x-16 animate-loop-scroll group-hover:paused"
+        >
+          <img class="h-10 max-w-none" src="images/html.png" alt="" />
+          <img class="h-10 max-w-none" src="images/css.png" alt="" />
+          <img class="h-10 max-w-none" src="images/js.png" alt="" />
+          <img class="h-10 max-w-none" src="images/git.png" alt="" />
+          <img class="h-10 max-w-none" src="images/github.png" alt="" />
+          <img class="h-10 max-w-none" src="images/laravel.png" alt="" />
+          <img class="h-10 max-w-none" src="images/react.png" alt="" />
+        </div>
+        <div
+          class="carousel flex space-x-16 animate-loop-scroll group-hover:paused"
+        >
+          <img class="h-10 max-w-none" src="images/html.png" alt="" />
+          <img class="h-10 max-w-none" src="images/css.png" alt="" />
+          <img class="h-10 max-w-none" src="images/js.png" alt="" />
+          <img class="h-10 max-w-none" src="images/git.png" alt="" />
+          <img class="h-10 max-w-none" src="images/github.png" alt="" />
+          <img class="h-10 max-w-none" src="images/laravel.png" alt="" />
+          <img class="h-10 max-w-none" src="images/react.png" alt="" />
+        </div>
+
+        <!-- EFEK KABUR KANAN -->
+        <div
+          class="absolute inset-y-0 right-0 w-32 bg-linear-to-l from-black to-transparent z-10"
+        ></div>
+      </div>
+      <div
+        class="relative flex space-x-16 overflow-hidden group mb-5 mx-10 sm:mx-15"
+      >
+        <!-- EFEK KABUR KIRI -->
+        <div
+          class="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-black to-transparent z-10"
+        ></div>
+        <div
+          class="carousel flex space-x-16 animate-loop-back group-hover:paused"
+        >
+          <img class="h-10 max-w-none" src="images/php.png" alt="" />
+          <img class="h-10 max-w-none" src="images/tailwind.png" alt="" />
+          <img class="h-10 max-w-none" src="images/figma.png" alt="" />
+          <img class="h-10 max-w-none" src="images/xd.png" alt="" />
+          <img class="h-10 max-w-none" src="images/postman.png" alt="" />
+          <img class="h-10 max-w-none" src="images/trello.png" alt="" />
+          <img class="h-10 max-w-none" src="images/jira.png" alt="" />
+        </div>
+        <div
+          class="carousel flex space-x-16 animate-loop-back group-hover:paused"
+        >
+          <img class="h-10 max-w-none" src="images/php.png" alt="" />
+          <img class="h-10 max-w-none" src="images/tailwind.png" alt="" />
+          <img class="h-10 max-w-none" src="images/figma.png" alt="" />
+          <img class="h-10 max-w-none" src="images/xd.png" alt="" />
+          <img class="h-10 max-w-none" src="images/postman.png" alt="" />
+          <img class="h-10 max-w-none" src="images/trello.png" alt="" />
+          <img class="h-10 max-w-none" src="images/jira.png" alt="" />
+        </div>
+        <!-- EFEK KABUR KANAN -->
+        <div
+          class="absolute inset-y-0 right-0 w-64 bg-linear-to-l from-black to-transparent z-10"
+        ></div>
+      </div>
     </header>
+
+    <!-- Purpose -->
+    <section>
+      <div class="flex justify-center py-50 px-40">
+        <h1 class="text-3xl font-thin text-center tracking-wide text-white/50">
+          My mission is to empower startups and enterprises to develop
+          user-centric digital products that build emotional resonance, increase
+          satisfaction, and drive sustained engagement.
+        </h1>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section></section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1"
+      type="module"
+    ></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="script/script.js"></script>
   </body>
 </html>
