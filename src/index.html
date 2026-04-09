@@ -6,137 +6,136 @@
     <link href="./output.css" rel="stylesheet" />
   </head>
   <body class="bg-black text-white">
-    <!-- header -->
-    <header>
-      <!-- nav -->
-      <nav
-        class="sticky top-0 z-20 bg-black after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10"
-      >
-        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-          <div class="relative flex h-16 items-center justify-between">
-            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-              <!-- Mobile menu button-->
-              <button
-                type="button"
-                command="--toggle"
-                commandfor="mobile-menu"
-                class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500"
-              >
-                <span class="absolute -inset-0.5"></span>
-                <span class="sr-only">Open main menu</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  data-slot="icon"
-                  aria-hidden="true"
-                  class="size-6 in-aria-expanded:hidden"
-                >
-                  <path
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  data-slot="icon"
-                  aria-hidden="true"
-                  class="size-6 not-in-aria-expanded:hidden"
-                >
-                  <path
-                    d="M6 18 18 6M6 6l12 12"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div
-              class="flex flex-1 items-center justify-center sm:items-center sm:justify-between"
+    <!-- nav -->
+    <nav
+      class="sticky top-0 z-20 bg-black after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10"
+    >
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Mobile menu button-->
+            <button
+              type="button"
+              command="--toggle"
+              commandfor="mobile-menu"
+              class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500"
             >
-              <div
-                class="flex shrink-0 items-center text-white font-bold text-xl"
+              <span class="absolute -inset-0.5"></span>
+              <span class="sr-only">Open main menu</span>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                data-slot="icon"
+                aria-hidden="true"
+                class="size-6 in-aria-expanded:hidden"
               >
-                Kemal
-              </div>
-              <div class="hidden sm:ml-6 sm:block">
-                <div class="flex items-center">
-                  <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-                  <a
-                    href="#"
-                    aria-current="page"
-                    class="hover:border-b border-transparent hover:border-gray-500 px-3 py-2 text-sm font-medium text-white hover:bg-white/5 hover:text-white"
-                    >Dashboard</a
-                  >
-                  <a
-                    href="#"
-                    class="hover:border-b border-transparent hover:border-gray-500 px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
-                    >Team</a
-                  >
-                  <a
-                    href="#"
-                    class="hover:border-b border-transparent hover:border-gray-500 px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
-                    >Projects</a
-                  >
-                  <a
-                    href="#"
-                    class="hover:border-b border-transparent hover:border-gray-500 px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
-                    >Calendar</a
-                  >
-                </div>
-              </div>
-              <button
-                class="hidden sm:flex items-center justify-center px-2 py-2 text-sm rounded-[3px] bg-gray-700/70 text-white hover:bg-gray-600 cursor-pointer"
+                <path
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                data-slot="icon"
+                aria-hidden="true"
+                class="size-6 not-in-aria-expanded:hidden"
               >
-                Contact Me
-              </button>
-            </div>
+                <path
+                  d="M6 18 18 6M6 6l12 12"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
           </div>
-        </div>
-
-        <el-disclosure
-          id="mobile-menu"
-          hidden
-          class="block sm:hidden transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
-        >
-          <div class="space-y-1 px-2 pt-2 pb-3">
-            <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-            <a
-              href="#"
-              aria-current="page"
-              class="block border-b-2 border-gray-500 px-3 py-2 text-base font-medium text-white"
-              >Dashboard</a
-            >
-            <a
-              href="#"
-              class="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
-              >Team</a
-            >
-            <a
-              href="#"
-              class="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
-              >Projects</a
-            >
-            <a
-              href="#"
-              class="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
-              >Calendar</a
-            >
-            <hr />
+          <div
+            class="flex flex-1 items-center justify-center sm:items-center sm:justify-between"
+          >
             <div
-              class="rounded-[3px] text-center px-3 py-2 mt-3 bg-gray-700 text-white"
+              class="flex shrink-0 items-center text-white font-bold text-xl"
+            >
+              Kemal
+            </div>
+            <div class="hidden sm:ml-6 sm:block">
+              <div class="flex items-center">
+                <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
+                <a
+                  href="#"
+                  aria-current="page"
+                  class="hover:border-b border-transparent hover:border-gray-500 px-3 py-2 text-sm font-medium text-white hover:bg-white/5 hover:text-white"
+                  >Dashboard</a
+                >
+                <a
+                  href="#"
+                  class="hover:border-b border-transparent hover:border-gray-500 px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
+                  >Team</a
+                >
+                <a
+                  href="#"
+                  class="hover:border-b border-transparent hover:border-gray-500 px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
+                  >Projects</a
+                >
+                <a
+                  href="#"
+                  class="hover:border-b border-transparent hover:border-gray-500 px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
+                  >Calendar</a
+                >
+              </div>
+            </div>
+            <button
+              class="hidden sm:flex items-center justify-center px-2 py-2 text-sm rounded-[3px] bg-white text-black hover:bg-white/50 hover:text-white cursor-pointer"
             >
               Contact Me
-            </div>
+            </button>
           </div>
-        </el-disclosure>
-      </nav>
+        </div>
+      </div>
 
+      <el-disclosure
+        id="mobile-menu"
+        hidden
+        class="absolute bg-black left-0 right-0 top-full z-20 block sm:hidden transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
+      >
+        <div class="space-y-1 px-2 pt-2 pb-3">
+          <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
+          <a
+            href="#"
+            aria-current="page"
+            class="block border-b-2 border-gray-500 px-3 py-2 text-base font-medium text-white"
+            >Dashboard</a
+          >
+          <a
+            href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
+            >Team</a
+          >
+          <a
+            href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
+            >Projects</a
+          >
+          <a
+            href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
+            >Calendar</a
+          >
+          <hr />
+          <div
+            class="rounded-[3px] text-center px-3 py-2 mt-3 bg-gray-700 text-white"
+          >
+            Contact Me
+          </div>
+        </div>
+      </el-disclosure>
+    </nav>
+    <!-- header -->
+    <header>
       <!-- Hero -->
       <section>
         <div class="bg-intro bg-radial from-white/15 to-black py-20 px-3.5">
@@ -175,7 +174,7 @@
         The Tech Stack I Use
       </h1>
       <div
-        class="relative flex space-x-16 overflow-hidden group mb-8 mx-10 sm:mx-15"
+        class="relative flex space-x-16 overflow-hidden group mb-8 mx-10 sm:mx-20"
       >
         <!-- EFEK KABUR KIRI -->
         <div
@@ -210,7 +209,7 @@
         ></div>
       </div>
       <div
-        class="relative flex space-x-16 overflow-hidden group mb-5 mx-10 sm:mx-15"
+        class="relative flex space-x-16 overflow-hidden group mb-5 mx-10 sm:mx-20"
       >
         <!-- EFEK KABUR KIRI -->
         <div
@@ -240,24 +239,166 @@
         </div>
         <!-- EFEK KABUR KANAN -->
         <div
-          class="absolute inset-y-0 right-0 w-64 bg-linear-to-l from-black to-transparent z-10"
+          class="absolute inset-y-0 right-0 w-32 bg-linear-to-l from-black to-transparent z-10"
         ></div>
       </div>
     </header>
-
     <!-- Purpose -->
     <section>
-      <div class="flex justify-center py-50 px-40">
-        <h1 class="text-3xl font-thin text-center tracking-wide text-white/50">
-          My mission is to empower startups and enterprises to develop
+      <div class="flex justify-center py-15 px-15 sm:px-40 sm:py-40">
+        <h1
+          class="text-2xl font-extralight text-center tracking-wide text-white"
+        >
+          "My mission is to empower startups and enterprises to develop
           user-centric digital products that build emotional resonance, increase
-          satisfaction, and drive sustained engagement.
+          satisfaction, and drive sustained engagement."
         </h1>
       </div>
     </section>
-
     <!-- Services -->
-    <section></section>
+    <section class="my-20">
+      <article class="grid grid-cols-1 md:grid-cols-2 px-20">
+        <section class="assist row-span-4">
+          <h1 class="text-5xl font-medium">How can I Assist You?</h1>
+          <div class="my-10">
+            <p class="max-w-md mb-10 font-light text-white/50">
+              Going beyond just a 'look,' I deliver custom digital solutions
+              focused on usability and conversion. Let's turn your vision into a
+              powerful tool for your business success.
+            </p>
+            <button
+              class="bg-white text-black px-3 py-2 rounded-[3px] hover:bg-white/50 hover:text-white cursor-pointer"
+            >
+              Learn More
+            </button>
+          </div>
+        </section>
+        <section class="assist1 sm:flex gap-5 border-b border-b-white/30">
+          <img class="h-15 mx-auto mb-4" src="images/icon/design.png" alt="" />
+          <div class="desc">
+            <h2 class="text-xl mb-2 text-center sm:text-start">UI/UX Design</h2>
+            <p
+              class="assist-desc text-center sm:text-start font-light text-white/50 mb-7"
+            >
+              I help design intuitive, user-friendly interfaces and meaningful
+              experiences that connect emotionally with customers. My goal is to
+              make products easy, enjoyable, and impactful to use.
+            </p>
+          </div>
+        </section>
+        <section class="assist2 sm:flex gap-5 border-b border-b-white/30 mt-7">
+          <img class="h-15 mx-auto mb-4" src="images/icon/graphic.png" alt="" />
+          <div class="desc">
+            <h2 class="text-xl mb-2 text-center sm:text-start">
+              Graphic Design
+            </h2>
+            <p
+              class="assist-desc text-center sm:text-start font-light text-white/50 mb-7"
+            >
+              I assist in transforming ideas into functional digital products.
+              Whether you need a website. I help plan, build, and improve
+              technical solutions that align with business needs and user
+              expectations.
+            </p>
+          </div>
+        </section>
+        <section class="assist3 sm:flex gap-5 border-b border-b-white/30 mt-7">
+          <img class="h-15 mx-auto mb-4" src="images/icon/dev.png" alt="" />
+          <div class="desc">
+            <h2 class="text-xl mb-2 text-center sm:text-start">Development</h2>
+            <p
+              class="assist-desc text-center sm:text-start font-light text-white/50 mb-7"
+            >
+              I help shape your visual identity so your brand stands out and
+              speaks clearly to your audience. From visuals to storytelling, I
+              help ensure consistency and emotional alignment.
+            </p>
+          </div>
+        </section>
+        <section class="assist4 sm:flex gap-5 border-b border-b-white/30 mt-7">
+          <img
+            class="h-15 mx-auto mb-4"
+            src="images/icon/qualified.png"
+            alt=""
+          />
+          <div class="desc">
+            <h2 class="text-xl mb-2 text-center sm:text-start">
+              Quality Assurance
+            </h2>
+            <p
+              class="assist-desc text-center sm:text-start font-light text-white/50 mb-7"
+            >
+              I ensure that your product is reliable, high-performing, and
+              bug-free before reaching users. With a structured testing
+              approach, I help teams deliver smoothly and confidently.
+            </p>
+          </div>
+        </section>
+      </article>
+    </section>
+    <!-- Project -->
+    <section class="project my-10 px-20">
+      <article class="grid grid-cols-1 md:grid-cols-2">
+        <section class="">
+          <h2 class="text-5xl font-medium">Projects I have worked on</h2>
+          <ul class="list-project">
+            <li class="py-5 border-t border-t-white/30">
+              <!-- Area Klik -->
+              <div class="list cursor-pointer hover:font-medium">
+                <span>Project 3</span>
+              </div>
+
+              <!-- Area Konten (Gunakan transition-all dan duration) -->
+              <div
+                class="desc overflow-hidden h-0 transition-all duration-300 ease-in-out"
+              >
+                <p class="text-gray-400">
+                  Going beyond just a 'look,' I deliver custom digital solutions
+                  focused on usability and conversion. Let's turn your vision
+                  into a powerful tool for your business success.
+                </p>
+              </div>
+            </li>
+            <li class="py-5 border-t border-t-white/30">
+              <!-- Area Klik -->
+              <div class="list cursor-pointer hover:font-medium">
+                <span>Project 3</span>
+              </div>
+
+              <!-- Area Konten (Gunakan transition-all dan duration) -->
+              <div
+                class="desc overflow-hidden h-0 transition-all duration-300 ease-in-out"
+              >
+                <p class="text-gray-400">
+                  Going beyond just a 'look,' I deliver custom digital solutions
+                  focused on usability and conversion. Let's turn your vision
+                  into a powerful tool for your business success.
+                </p>
+              </div>
+            </li>
+            <li class="py-5 border-t border-t-white/30">
+              <!-- Area Klik -->
+              <div class="list cursor-pointer hover:font-medium">
+                <span>Project 3</span>
+              </div>
+
+              <!-- Area Konten (Gunakan transition-all dan duration) -->
+              <div
+                class="desc overflow-hidden h-0 transition-all duration-300 ease-in-out"
+              >
+                <p class="text-gray-400">
+                  Going beyond just a 'look,' I deliver custom digital solutions
+                  focused on usability and conversion. Let's turn your vision
+                  into a powerful tool for your business success.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section class=""></section>
+      </article>
+    </section>
+    <!-- Image Project -->
     <script
       src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1"
       type="module"
