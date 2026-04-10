@@ -536,9 +536,52 @@
       </div>
     </section>
     <!-- Profile -->
-    <section class="grid grid-cols-1 md:grid-cols-2 py-15">
-      <article>1</article>
-      <article>2</article>
+    <section class="grid grid-cols-1 md:grid-cols-2 py-30 px-20 gap-15">
+      <article class="flex justify-center items-center">
+        <div class="relative group">
+          <div
+            class="absolute -left-4 -bottom-4 w-full h-full border border-white/50 rounded-2xl transition-all duration-300 group-hover:-left-2 group-hover:-bottom-2"
+          ></div>
+
+          <img
+            class="relative z-10 rounded-2xl hover:scale-103 transition-all duration-300 object-cover max-h-50 md:max-h-70 lg:max-h-100"
+            src="images/profile.jpeg"
+            alt=""
+          />
+        </div>
+      </article>
+      <article class="lg:pr-20">
+        <h3 class="text-2xl font-medium mb-5">
+          I am Mustafa Kemal, a full stack web developer and a programmer
+          working remotely in my home at Jakarta, Indonesia.
+        </h3>
+        <p class="font-extralight mb-5">
+          I've spent the last 3 years learning and working across different
+          areas of development: UI/UX Design, Graphic Design, Development, and
+          currently working as a Quality Assurance.
+        </p>
+        <p class="font-extralight mb-5">
+          These days my time is spent researching, designing, building websites,
+          and coding. I also love to learn and experiment with new things.
+        </p>
+        <p class="font-extralight mb-5">
+          My mission is to help small and medium-sized businesses grow their
+          audience and brand recognition by providing them a stylish and
+          modern-looking, fully functional website.
+        </p>
+        <div class="btn-profile text-sm flex gap-3 mt-10">
+          <button
+            class="py-2 px-3 bg-white text-black rounded-[3px] hover:bg-white/50 hover:text-white"
+          >
+            My Resume
+          </button>
+          <button
+            class="py-2 px-3 bg-white/50 rounded-[3px] hover:bg-white hover:text-black"
+          >
+            Contact Me
+          </button>
+        </div>
+      </article>
     </section>
     <script
       src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1"
