@@ -62,10 +62,12 @@ const prevBtn = document.getElementById("prevBtn");
 // Fungsi Klik Tombol
 nextBtn.addEventListener("click", () => {
   track.scrollLeft += track.offsetWidth / 2;
+  track.scrollBy({ left: 300, behavior: "smooth" });
 });
 
 prevBtn.addEventListener("click", () => {
   track.scrollLeft -= track.offsetWidth / 2;
+  track.scrollBy({ left: -300, behavior: "smooth" });
 });
 
 // Logika Drag Mouse (Opsional, gunakan kode drag yang kita bahas sebelumnya)
@@ -86,4 +88,34 @@ track.addEventListener("mousemove", (e) => {
   const x = e.pageX - track.offsetLeft;
   const walk = (x - startX) * 2;
   track.scrollLeft = scrollLeft - walk;
+});
+
+// faq
+
+const faq = document.querySelector(".faq-items");
+const q = faq.querySelectorAll(".list");
+const ans = faq.querySelectorAll(".ans");
+
+q.forEach((item, i) => {
+  item.addEventListener("click", () => {
+    const isOpen = ans[i].classList.contains("h-auto");
+
+    // tutup semua
+    ans.forEach((el) => {
+      el.classList.remove("h-auto", "py-4");
+      el.classList.add("h-0");
+    });
+
+    q.forEach((el) => {
+      el.classList.remove("font-medium");
+    });
+
+    // buka yang diklik
+    if (!isOpen) {
+      ans[i].classList.remove("h-0");
+      ans[i].classList.add("h-auto", "py-4");
+
+      q[i].classList.add("font-medium");
+    }
+  });
 });
