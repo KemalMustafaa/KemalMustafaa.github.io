@@ -16,44 +16,72 @@ typewriter
 
 // untuk membuat project li
 // Tambahkan titik (.) sebelum nama class
-const tag = document.querySelector("section.project");
-const projects = tag.querySelectorAll(".list");
-const descs = tag.querySelectorAll(".desc");
+// deklarasi untuk project
+// Inisialisasi Project
+const projectTag = document.querySelector("section.project");
 const mainImg = document.getElementById("main-project-img");
+if (projectTag) {
+  setupAccordion(
+    projectTag.querySelectorAll(".list"),
+    projectTag.querySelectorAll(".desc"),
+    "h-fit",
+  );
+}
 
-projects.forEach((item, i) => {
-  item.addEventListener("click", () => {
-    const isCurrentlyOpen = descs[i].classList.contains("h-fit");
+// Inisialisasi FAQ
+const faqTag = document.querySelector(".faq-items");
+if (faqTag) {
+  setupAccordion(
+    faqTag.querySelectorAll(".list"),
+    faqTag.querySelectorAll(".ans"),
+    "h-auto",
+  );
+}
 
-    // 1. Tutup SEMUA list terlebih dahulu
-    descs.forEach((el) => {
-      el.classList.remove("h-fit", "py-4");
-      el.classList.add("h-0");
+function setupAccordion(triggers, contents, activeClass = "h-fit") {
+  triggers.forEach((item, i) => {
+    item.addEventListener("click", () => {
+      const isOpen = contents[i].classList.contains(activeClass);
+
+      // 1. Reset Semua (Tutup semua konten dan hapus styling trigger)
+      contents.forEach((el) => {
+        el.classList.remove(activeClass, "py-4", "h-auto"); // gabungkan semua class aktif
+        el.classList.add("h-0");
+      });
+      triggers.forEach((el) => {
+        el.classList.remove("ml-5", "font-medium");
+        el.classList.add("ml-0");
+      });
+
+      // 2. Jika sebelumnya tertutup, sekarang buka
+      if (!isOpen) {
+        contents[i].classList.add(activeClass, "py-4");
+        contents[i].classList.remove("h-0");
+        triggers[i].classList.add("font-medium");
+
+        // Khusus untuk section Project (jika ada margin)
+        if (triggers[i].closest("section.project")) {
+          triggers[i].classList.add("ml-5");
+        }
+
+        // Logic ganti gambar khusus untuk Project
+        const newImgPath = item.getAttribute("data-img");
+        if (newImgPath && mainImg) {
+          updateMainImage(newImgPath);
+        }
+      }
     });
-    projects.forEach((el) => {
-      el.classList.remove("ml-5", "font-medium");
-      el.classList.add("ml-0");
-    });
-
-    // 2. Jika yang diklik tadi tidak sedang terbuka, maka buka
-    if (!isCurrentlyOpen) {
-      descs[i].classList.add("h-fit", "py-4");
-      descs[i].classList.remove("h-0");
-      projects[i].classList.add("ml-5", "font-medium");
-      projects[i].classList.remove("ml-0");
-
-      // 2. Ganti Gambar
-      const newImgPath = item.getAttribute("data-img");
-
-      // Efek transisi sederhana
-      mainImg.style.opacity = 0;
-      setTimeout(() => {
-        mainImg.src = newImgPath;
-        mainImg.style.opacity = 1;
-      }, 200);
-    }
   });
-});
+}
+
+// Helper untuk transisi gambar
+function updateMainImage(path) {
+  mainImg.style.opacity = 0;
+  setTimeout(() => {
+    mainImg.src = path;
+    mainImg.style.opacity = 1;
+  }, 200);
+}
 
 const track = document.getElementById("carousel-track");
 const nextBtn = document.getElementById("nextBtn");
@@ -88,34 +116,4 @@ track.addEventListener("mousemove", (e) => {
   const x = e.pageX - track.offsetLeft;
   const walk = (x - startX) * 2;
   track.scrollLeft = scrollLeft - walk;
-});
-
-// faq
-
-const faq = document.querySelector(".faq-items");
-const q = faq.querySelectorAll(".list");
-const ans = faq.querySelectorAll(".ans");
-
-q.forEach((item, i) => {
-  item.addEventListener("click", () => {
-    const isOpen = ans[i].classList.contains("h-auto");
-
-    // tutup semua
-    ans.forEach((el) => {
-      el.classList.remove("h-auto", "py-4");
-      el.classList.add("h-0");
-    });
-
-    q.forEach((el) => {
-      el.classList.remove("font-medium");
-    });
-
-    // buka yang diklik
-    if (!isOpen) {
-      ans[i].classList.remove("h-0");
-      ans[i].classList.add("h-auto", "py-4");
-
-      q[i].classList.add("font-medium");
-    }
-  });
 });
