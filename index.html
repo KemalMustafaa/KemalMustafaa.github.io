@@ -1,8 +1,8 @@
 <!doctype html>
-<html>
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="google-site-verification"
@@ -81,29 +81,29 @@
                   >Home</a
                 >
                 <a
-                  href="#"
+                  href="#service"
                   class="hover:border-b border-transparent hover:border-gray-500 px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
                   >Service</a
                 >
                 <a
-                  href="#"
+                  href="#project"
                   class="hover:border-b border-transparent hover:border-gray-500 px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
                   >New Project</a
                 >
                 <a
-                  href="#"
+                  href="#img-project"
                   class="hover:border-b border-transparent hover:border-gray-500 px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
                   >Project</a
                 >
                 <a
-                  href="#"
-                  class="hover:border-b border-transparent hover:border-gray-500 px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
-                  >Contact</a
-                >
-                <a
-                  href="#"
+                  href="#faq"
                   class="hover:border-b border-transparent hover:border-gray-500 px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
                   >FAQ</a
+                >
+                <a
+                  href="#contact"
+                  class="hover:border-b border-transparent hover:border-gray-500 px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
+                  >Contact</a
                 >
               </div>
             </div>
@@ -274,7 +274,7 @@
       </div>
     </section>
     <!-- Services -->
-    <section class="my-20">
+    <section id="service" class="py-20">
       <article class="grid grid-cols-1 md:grid-cols-2 px-20">
         <section class="assist row-span-4">
           <h1 class="text-5xl font-medium">How can I Assist You?</h1>
@@ -363,7 +363,7 @@
       </article>
     </section>
     <!-- Project -->
-    <section class="project my-30 px-20">
+    <section id="project" class="project py-30 px-20">
       <article class="grid grid-cols-1 md:grid-cols-2 gap-5">
         <section class="sm:pr-10">
           <h2 class="text-5xl font-medium mb-10">Projects I have worked on</h2>
@@ -371,7 +371,7 @@
             <li class="py-5 border-b border-b-white/30">
               <!-- Area Klik -->
               <div
-                class="list ml-5 cursor-pointer font-extralight tracking-wider hover:font-medium transition-all duration-300 ease-in-out"
+                class="list ml-5 cursor-pointer font-medium tracking-wider hover:font-medium transition-all duration-300 ease-in-out"
                 data-img="src/images/Desktop - 1.jpg"
               >
                 <span class="text-3xl">Project 3</span>
@@ -455,7 +455,10 @@
       </article>
     </section>
     <!-- Image Project -->
-    <section class="bg-[#0f0f0f] text-white py-20 px-6 sm:px-20">
+    <section
+      id="img-project"
+      class="bg-[#0f0f0f] text-white py-20 px-6 sm:px-20"
+    >
       <!-- Header: Judul & Navigasi -->
       <div class="flex justify-between items-end mb-10">
         <div>
@@ -606,7 +609,7 @@
       </article>
     </section>
     <!-- FAQs -->
-    <section class="py-20">
+    <section id="faq" class="py-20">
       <article class="items-center justify-center">
         <h2 class="text-3xl md:text-5xl font-medium text-center mb-8">
           Frequently Asked <br />
@@ -738,6 +741,7 @@
     </section>
     <!-- Contact -->
     <section
+      id="contact"
       class="bg-[#0f0f0f] grid grid-cols-1 md:grid-cols-2 py-20 px-20 gap-10"
     >
       <article class="contact-title">

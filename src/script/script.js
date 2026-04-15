@@ -22,40 +22,68 @@ const initTypewriter = () => {
 };
 
 // 2. Accordion Component (Project & FAQ)
-const setupAccordion = (triggers, contents, activeClass = "h-fit") => {
+// Tambahkan parameter isInitializing (default false)
+const setupAccordion = (
+  triggers,
+  contents,
+  activeClass = "h-fit",
+  isInitializing = false,
+) => {
   const mainImg = document.getElementById("main-project-img");
 
   triggers.forEach((item, i) => {
+    // Logika Klik (tetap sama)
     item.addEventListener("click", () => {
-      const targetContent = contents[i];
-      const isOpen = targetContent.classList.contains(activeClass);
-
-      // Reset State
-      contents.forEach((el) => {
-        el.classList.remove(activeClass, "py-4", "h-auto");
-        el.classList.add("h-0");
-      });
-
-      triggers.forEach((el) => {
-        el.classList.remove("ml-5", "font-medium");
-        el.classList.add("ml-0");
-      });
-
-      // Toggle Open State
-      if (!isOpen) {
-        targetContent.classList.add(activeClass, "py-4");
-        targetContent.classList.remove("h-0");
-        item.classList.add("font-medium");
-
-        // Logic khusus Project
-        if (item.closest("section.project")) {
-          item.classList.add("ml-5");
-          const newImgPath = item.getAttribute("data-img");
-          if (newImgPath && mainImg) updateMainImage(mainImg, newImgPath);
-        }
-      }
+      handleAccordionToggle(item, i, triggers, contents, activeClass, mainImg);
     });
+
+    // --- LOGIKA BARU UNTUK INISIALISASI ---
+    // Cek apakah item ini sudah memiliki class aktif secara default di HTML
+    if (isInitializing && item.classList.contains("font-medium")) {
+      const initialImgPath = item.getAttribute("data-img");
+      // Langsung set gambar tanpa animasi (agar cepat saat load)
+      if (initialImgPath && mainImg) {
+        mainImg.src = initialImgPath;
+        mainImg.style.opacity = 1; // Pastikan opacity 1
+      }
+    }
   });
+};
+
+// Pindahkan logika toggle ke fungsi terpisah agar lebih rapi
+const handleAccordionToggle = (
+  clickedItem,
+  index,
+  triggers,
+  contents,
+  activeClass,
+  mainImg,
+) => {
+  const targetContent = contents[index];
+  const isOpen = targetContent.classList.contains(activeClass);
+
+  // 1. Reset State Semua
+  contents.forEach((el) => {
+    el.classList.remove(activeClass, "py-4", "h-auto");
+    el.classList.add("h-0");
+  });
+  triggers.forEach((el) => {
+    el.classList.remove("ml-5", "font-medium");
+    el.classList.add("ml-0");
+  });
+
+  // 2. Buka yang diklik
+  if (!isOpen) {
+    targetContent.classList.add(activeClass, "py-4");
+    targetContent.classList.remove("h-0");
+    clickedItem.classList.add("font-medium");
+
+    if (clickedItem.closest("section.project")) {
+      clickedItem.classList.add("ml-5");
+      const newImgPath = clickedItem.getAttribute("data-img");
+      if (newImgPath && mainImg) updateMainImage(mainImg, newImgPath);
+    }
+  }
 };
 
 const updateMainImage = (imgElement, path) => {
@@ -121,14 +149,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // Project Accordion
   const projectTag = document.querySelector("section.project");
   if (projectTag) {
-    setupAccordion(
-      projectTag.querySelectorAll(".list"),
-      projectTag.querySelectorAll(".desc"),
-      "h-fit",
-    );
+    const triggers = projectTag.querySelectorAll(".list");
+    const contents = projectTag.querySelectorAll(".desc");
+
+    // Panggil dengan parameter isInitializing = true
+    setupAccordion(triggers, contents, "h-fit", true);
   }
 
-  // FAQ Accordion
+  // FAQ Accordion (Inisialisasi biasa, tanpa load gambar)
   const faqTag = document.querySelector(".faq-items");
   if (faqTag) {
     setupAccordion(
