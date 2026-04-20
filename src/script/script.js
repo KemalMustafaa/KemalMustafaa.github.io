@@ -5,7 +5,7 @@
 // navbar
 document.addEventListener("DOMContentLoaded", () => {
   // Ambil semua link dari Navbar (Desktop & Mobile)
-  const allNavLinks = document.querySelectorAll('nav a[href^="#"]');
+  const allNavLinks = document.querySelectorAll("nav a.nav-menu");
   const mobileMenu = document.getElementById("mobile-menu");
 
   allNavLinks.forEach((link) => {
@@ -272,6 +272,23 @@ const ContactService = {
     const form = e.target;
     const btn = form.querySelector("button");
 
+    // --- 1. VALIDASI FORM ---
+    const formData = new FormData(form);
+    const name = formData.get("from_name"); // Pastikan 'name' di HTML adalah user_name
+    const email = formData.get("email");
+    const message = formData.get("message");
+
+    // Jika ada salah satu yang kosong atau hanya berisi spasi
+    if (!name?.trim() || !email?.trim() || !message?.trim()) {
+      Swal.fire({
+        icon: "warning",
+        title: "Validation Error",
+        text: "Please complete the message form!",
+        confirmButtonColor: "#3085d6",
+      });
+      return; // Berhenti di sini, jangan lanjut kirim email
+    }
+
     try {
       btn.innerText = "Sending...";
       btn.disabled = true;
@@ -336,3 +353,57 @@ const resume = document
       confirmButtonColor: "#3085d6",
     });
   });
+
+//gsap
+document.addEventListener("DOMContentLoaded", (event) => {
+  // gsap code here!
+  gsap.from(".nav-menu, .logo, .btn-contact", {
+    duration: 1,
+    opacity: 0,
+    y: 30,
+    stagger: 0.2, // Jeda 0.2 detik antar elemen
+    ease: "power2.out",
+  });
+
+  gsap.from(".location, #title-intro, .hero-p, .btn-cta", {
+    duration: 2,
+    opacity: 0,
+    y: 30,
+    stagger: 0.2,
+    ease: "power2.out",
+  });
+});
+
+//scrollreveal
+document.addEventListener("DOMContentLoaded", (event) => {
+  const sr = ScrollReveal({
+    distance: "60px",
+    duration: 2500,
+    delay: 400,
+    // reset: true,
+  });
+
+  sr.reveal(".purpose, .card, .faq-title", {
+    origin: "top",
+    interval: 100,
+    viewFactor: 0.2,
+  });
+
+  sr.reveal(
+    ".assist, .order-2, .img-profile, .quest-1, .contact-title, .footer-left",
+    {
+      origin: "left",
+      interval: 100,
+      viewFactor: 0.2,
+    },
+  );
+
+  sr.reveal(
+    ".assist1, .assist2, .assist3, .assist4, .order-1, .desc-profile, .quest-2, .form-contact, .footer-right",
+    {
+      origin: "right",
+      interval: 100,
+      viewFactor: 0.2,
+    },
+  );
+});
