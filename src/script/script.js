@@ -376,15 +376,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 //scrollreveal
 document.addEventListener("DOMContentLoaded", (event) => {
+  const isMobile = window.innerWidth < 768;
   const sr = ScrollReveal({
-    distance: "60px",
+    distance: isMobile ? "20px" : "60px",
     duration: 2500,
     delay: 400,
     // reset: true,
   });
 
-  sr.reveal(".purpose, .card, .faq-title", {
-    origin: "top",
+  sr.reveal(".purpose, #carousel-track, .faq-title, .worked, .design", {
+    origin: "bottom",
     interval: 100,
     viewFactor: 0.2,
   });
@@ -392,7 +393,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   sr.reveal(
     ".assist, .order-2, .img-profile, .quest-1, .contact-title, .footer-left",
     {
-      origin: "left",
+      origin: isMobile ? "bottom" : "left",
       interval: 100,
       viewFactor: 0.2,
     },
@@ -401,7 +402,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   sr.reveal(
     ".assist1, .assist2, .assist3, .assist4, .order-1, .desc-profile, .quest-2, .form-contact, .footer-right",
     {
-      origin: "right",
+      origin: isMobile ? "bottom" : "right",
       interval: 100,
       viewFactor: 0.2,
     },
